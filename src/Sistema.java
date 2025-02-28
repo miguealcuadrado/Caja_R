@@ -1,10 +1,16 @@
+import javax.swing.JScrollPane;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.WindowConstants;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+
+
 
 public class Sistema extends JFrame {
 
@@ -13,7 +19,7 @@ public class Sistema extends JFrame {
     
 
     public Sistema () {
-        setSize(700,500);
+        setSize(700,600);
         setTitle("CAJA REGISTRADORA");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -43,9 +49,19 @@ public class Sistema extends JFrame {
         Texto_6.setBounds(405, 130, 230, 20);
         getContentPane().add(Texto_6);
 
+        JTextArea Salida = new JTextArea();
+        Salida.setBounds(35, 250, 260, 184);
+        Salida.setEditable(false);
+
+        JScrollPane Scroll_Salida = new JScrollPane(Salida);
+        Scroll_Salida.setBounds(35,250,260,184);
+        getContentPane().add(Scroll_Salida);
+
+
+
+
         
-        
-    
+
         JTextField Valor_A_Pagar = new JTextField();
         Valor_A_Pagar.setBounds(30, 90, 105, 20);
         getContentPane().add(Valor_A_Pagar);
@@ -73,6 +89,10 @@ public class Sistema extends JFrame {
         Insertar.setBounds(447, 200, 110,20);
         getContentPane().add(Insertar);
 
+        JButton Actualizar = new JButton("ACTUALIZAR");
+        Actualizar.setBounds(285,460, 110, 20);
+        getContentPane().add(Actualizar);
+
 
 
 
@@ -83,6 +103,35 @@ public class Sistema extends JFrame {
         DefaultComboBoxModel<Integer> Modelo_Opciones = new DefaultComboBoxModel<>(opciones);
         Existencia.setModel(Modelo_Opciones);
         getContentPane().add(Existencia);
+
+        String[] Columnas = {"DENOMINACIÓN" , "EXISTENCIA" , "DEVUELTA"};
+
+        Object[][] filas = { 
+            {100000, 5, 0} ,
+            {50000, 5, 0} ,
+            {20000, 5, 0} ,
+            {10000, 5, 0} ,
+            {5000, 10, 0},
+            {2000, 10, 0} ,
+            {1000, 10, 0} ,
+            {500, 15, 0} ,
+            {200, 15, 0} ,
+            {100, 15, 0}   
+        };
+
+        DefaultTableModel modeloTabla = new DefaultTableModel(filas, Columnas);
+        
+        JTable Tabla = new JTable(modeloTabla);
+        JScrollPane Dis_Tabla = new JScrollPane(Tabla);
+        Dis_Tabla.setBounds(380, 250, 260, 184);
+        getContentPane().add(Dis_Tabla);
+
+        
+
+
+
+
+       
 
         
 
