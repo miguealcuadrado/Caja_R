@@ -5,6 +5,20 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "Sistema",
+            "request": "launch",
+            "mainClass": "Sistema",
+            "projectName": "Caja_Registradora2_c7227011"
+        },
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "App",
+            "projectName": "Caja_Registradora2_c7227011"
+        },
+        {
             "type": "jdk",
             "request": "launch",
             "name": "Launch Java App"
